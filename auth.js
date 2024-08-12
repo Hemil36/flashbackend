@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
-import { createUser, findUserByEmail } from '../backend/models/User.js';
 import supabase from "./config/db.js";
 
 
