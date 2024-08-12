@@ -1,6 +1,7 @@
 import { createTopic, deleteTopicById, getTopicsByUserId } from '../models/Topic.js';
 import { getTopicName } from '../models/Flashcard.js';
 
+
 export const createNewTopic = async (req, res) => {
     const { topic_name, user_id } = req.body;
     const results = await createTopic(topic_name, user_id);

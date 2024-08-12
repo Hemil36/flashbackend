@@ -10,7 +10,7 @@ dotenv.config();
 
 const corsOptions = {
   origin: (origin, callback) => {
-      if (origin === 'https://flashcard-eight-rouge.vercel.app/' || !origin) {
+      if (origin === 'http://flashcard-eight-rouge.vercel.app/' || !origin) {
           callback(null, true);
       } else {
           callback(new Error('Not allowed by CORS'));
@@ -20,20 +20,19 @@ const corsOptions = {
   }
 }
 
-const app = express();
-app.use(express.json());
-
-const port = process.env.PORT || 5000;
-
 const credentials = (req, res, next) => {
 
   res.header('Access-Control-Allow-Credentials', true);
 
 next();
 }
+const app = express();
+const port = process.env.PORT || 5000;
+
 
 app.use(credentials);
-app.use(cors());
+app.use(cors(corsOptions));
+app.use(express.json());
 app.use(cookieParser());
 
 
