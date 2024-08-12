@@ -32,7 +32,7 @@ app.use(function (request, response, next) {
 });
 
 app.use(credentials);
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(cookieParser());
 
 
