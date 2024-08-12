@@ -18,19 +18,21 @@ const corsOptions = {
   }
 }
 
+const app = express();
+app.use(express.json());
+
+const port = process.env.PORT || 5000;
+
 const credentials = (req, res, next) => {
 
   res.header('Access-Control-Allow-Credentials', true);
 
 next();
 }
-const app = express();
-const port = process.env.PORT || 5000;
 
 
 app.use(credentials);
 app.use(cors(corsOptions));
-app.use(express.json());
 app.use(cookieParser());
 
 
