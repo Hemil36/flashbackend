@@ -37,7 +37,7 @@ app.use(function (request, response, next) {
   next();
 });
 
-app.use(credentials);
+// app.use(credentials);
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
