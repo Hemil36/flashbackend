@@ -1,5 +1,5 @@
 import { createTopic, deleteTopicById, getTopicsByUserId } from '../models/Topic.js';
-import { getTopicName } from '../models/Flashcard.js';
+import { getTopicName } from '../models/FlashCard.js';
 
 
 export const createNewTopic = async (req, res) => {
