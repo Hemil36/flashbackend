@@ -10,8 +10,9 @@ dotenv.config();
 
 const corsOptions = {
   origin: (origin, callback) => {
-    callback(null, 'https://flashcard-48vrfoeie-hemil36s-projects.vercel.app');
-      
+      if (origin === 'https://flashcard-48vrfoeie-hemil36s-projects.vercel.app/' || !origin) {
+          callback(null, true);
+      }
       optionsSuccessStatus: 200
 
   }
@@ -28,7 +29,7 @@ const port = process.env.PORT || 5000;
 
 
 app.use(credentials);
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
