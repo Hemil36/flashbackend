@@ -1,4 +1,4 @@
-import { createFlashcard, deleteFlashcardById, getFlashcardsById, getFlashcardsByTopicId, getTopicName, updateFlashcardById } from '../models/Flashcard.js';
+import { createFlashcard, deleteFlashcardById, getFlashcardsById, getFlashcardsByTopicId, getTopicName, updateFlashcardById } from '../models/FlashCard.js';
 
 export const createNewFlashcard = async (req, res) => {
   try {
