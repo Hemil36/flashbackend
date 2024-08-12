@@ -1,6 +1,5 @@
 import express from 'express';
 import { createNewFlashcard, deleteFlashcard, getFlashcardById, getTopicFlashcards, updateFlashcard } from '../controllers/flashcardController.js';
-import { deleteFlashcardById } from '../models/Flashcard.js';
 
 const router = express.Router();
 
