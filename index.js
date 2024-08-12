@@ -9,10 +9,16 @@ import cookieParser from 'cookie-parser';
 dotenv.config();
 
 const corsOptions = {
-  origin: 'https://flashcard-eight-rouge.vercel.app',
-  optionsSuccessStatus: 200
-};
+  origin: (origin, callback) => {
+      if (origin === 'https://flashcard-eight-rouge.vercel.app/' || !origin) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+      optionsSuccessStatus: 200
 
+  }
+}
 
 const app = express();
 app.use(express.json());
