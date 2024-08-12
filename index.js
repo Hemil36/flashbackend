@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 dotenv.config();
 
 const corsOptions = {
-  origin: 'https://flashcard-48vrfoeie-hemil36s-projects.vercel.app/',
+  origin: 'https://flashcard-eight-rouge.vercel.app',
   optionsSuccessStatus: 200
 };
 
