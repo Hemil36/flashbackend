@@ -8,10 +8,16 @@ import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
-const corsOptions ={
-  origin:'https://flashcard-eight-rouge.vercel.app/', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
+const corsOptions = {
+  origin: (origin, callback) => {
+      if (origin === 'http://flashcard-eight-rouge.vercel.app/' || !origin) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+      optionsSuccessStatus: 200
+
+  }
 }
 
 const credentials = (req, res, next) => {
@@ -23,12 +29,11 @@ next();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(express.urlencoded({ extended: false }));
 
 app.use(credentials);
-app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 
 app.use('/api/users', userRoutes);
