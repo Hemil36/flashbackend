@@ -10,7 +10,7 @@ dotenv.config();
 
 const corsOptions = {
   origin: (origin, callback) => {
-          callback(null, true);
+    callback(null, 'https://flashcard-48vrfoeie-hemil36s-projects.vercel.app');
       
       optionsSuccessStatus: 200
 
